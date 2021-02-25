@@ -1,3 +1,3 @@
 const nativeModule = require('./');
 
-console.log(nativeModule.aNumber());
+console.log(nativeModule.aNumber(42));

@@ -1,5 +1,6 @@
 #include "functions.h"
 
 NAN_METHOD(aNumber) {
-    info.GetReturnValue().Set(1.75);
+    double input = Nan::To<double>(info[0]).FromJust();
+    info.GetReturnValue().Set(input * 2);
 }
