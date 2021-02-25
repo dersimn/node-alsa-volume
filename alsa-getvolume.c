@@ -25,7 +25,7 @@ static void error_close_exit(char *errmsg, int err, snd_mixer_t *h_mixer)
 	exit(EXIT_FAILURE);
 }
 
-int main(int argc, char** argv)
+long getVolume(int argc, char** argv)
 {
 	int err;
 	long vol;
@@ -63,8 +63,7 @@ int main(int argc, char** argv)
 		error_close_exit("Cannot find simple element\n", 0, h_mixer);
 
 	snd_mixer_selem_get_playback_volume(elem, CHANNEL, &vol);
-	printf("%ld\n", vol);
 
 	snd_mixer_close(h_mixer);
-	return 0;
+	return vol;
 }

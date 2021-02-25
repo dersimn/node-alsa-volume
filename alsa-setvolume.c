@@ -25,7 +25,7 @@ static void error_close_exit(char *errmsg, int err, snd_mixer_t *h_mixer)
 	exit(EXIT_FAILURE);
 }
 
-int main(int argc, char** argv)
+void setVolume(int argc, char** argv)
 {
 	int err;
 	long vol;
@@ -67,5 +67,4 @@ int main(int argc, char** argv)
 		error_close_exit("Volume set error: %s\n", err, h_mixer);
 
 	snd_mixer_close(h_mixer);
-	return 0;
 }
