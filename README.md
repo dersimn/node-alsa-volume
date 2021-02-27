@@ -1,6 +1,8 @@
 
 ## Usage
 
+    apt install build-essential git libasound2-dev
+    
     npm i alsa-volume
 
 Example:
