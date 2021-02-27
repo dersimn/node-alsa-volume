@@ -1,5 +1,6 @@
 #include "functions.h"
 #include "alsa-getvolume.h"
+#include "alsa-setvolume.h"
 
 using v8::FunctionTemplate;
 
@@ -14,6 +15,7 @@ NAN_MODULE_INIT(InitAll) {
   );
 
   NAN_EXPORT(target, getVolume);
+  NAN_EXPORT(target, setVolume);
 }
 
 NODE_MODULE(NativeExtension, InitAll)
