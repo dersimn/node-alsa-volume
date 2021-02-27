@@ -1,9 +1,9 @@
-const nativeModule = require('./');
+const alsaVolume = require('./');
 
 const before = Date.now();
-console.log(nativeModule.getVolume('default', 'Line'));
-console.log(nativeModule.setVolume('default', 'Line', 42));
-console.log(nativeModule.getVolume('default', 'Line'));
+console.log(alsaVolume.getVolume('default', 'Line'));
+console.log(alsaVolume.setVolume('default', 'Line', 42));
+console.log(alsaVolume.getVolume('default', 'Line'));
 const after = Date.now();
 
 console.log('took', after-before, 'ms');
