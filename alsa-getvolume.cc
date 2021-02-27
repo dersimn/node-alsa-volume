@@ -31,9 +31,9 @@ NAN_METHOD(getVolume)
 	long vol;
 	snd_mixer_t *h_mixer;
 	snd_mixer_selem_id_t *sid;
-	snd_mixer_elem_t *elem ;
-	v8::String::Utf8Value device(info[0]->ToString());;
-	v8::String::Utf8Value selem_name(info[1]->ToString());;
+	snd_mixer_elem_t *elem;
+	v8::String::Utf8Value device(info[0]->ToString());
+	v8::String::Utf8Value selem_name(info[1]->ToString());
 
 	if ((err = snd_mixer_open(&h_mixer, 1)) < 0)
 		error_close_exit("Mixer open error: %s\n", err, NULL);
