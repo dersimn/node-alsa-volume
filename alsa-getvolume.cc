@@ -1,5 +1,5 @@
-// set-volume is a small utility for ALSA mixer volume
-// It's based on get-volume, written for being used in Conky.
+// get-volume is a small utility for ALSA mixer volume, written for being used
+// in Conky.
 //
 // This code is in Public Domain
 //
@@ -8,11 +8,11 @@
 //
 // Author:
 //  2009 Yu-Jie Lin
-//  2014 Maarten ter Huurne
 
-#include <stdio.h>
-#include <stdlib.h>
+#include <nan.h>
 #include <alsa/asoundlib.h>
+
+const snd_mixer_selem_channel_id_t CHANNEL = SND_MIXER_SCHN_FRONT_LEFT;
 
 static void error_close_exit(char *errmsg, int err, snd_mixer_t *h_mixer)
 {
@@ -25,7 +25,7 @@ static void error_close_exit(char *errmsg, int err, snd_mixer_t *h_mixer)
 	exit(EXIT_FAILURE);
 }
 
-void setVolume(int argc, char** argv)
+long getVolume(int argc, char** argv)
 {
 	int err;
 	long vol;
@@ -35,14 +35,13 @@ void setVolume(int argc, char** argv)
 	char *device;
 	char *selem_name;
 
-	if (argc < 4) {
-		printf("Usage:\n\t%s device control volume\n", argv[0]);
+	if (argc < 3) {
+		printf("Usage:\n\t%s device control\n", argv[0]);
 		return 0;
 	}
 
 	device = argv[1];
 	selem_name = argv[2];
-	vol = atol(argv[3]);
 
 	if ((err = snd_mixer_open(&h_mixer, 1)) < 0)
 		error_close_exit("Mixer open error: %s\n", err, NULL);
@@ -63,8 +62,8 @@ void setVolume(int argc, char** argv)
 	if ((elem = snd_mixer_find_selem(h_mixer, sid)) == NULL)
 		error_close_exit("Cannot find simple element\n", 0, h_mixer);
 
-	if ((err = snd_mixer_selem_set_playback_volume_all(elem, vol)) < 0)
-		error_close_exit("Volume set error: %s\n", err, h_mixer);
+	snd_mixer_selem_get_playback_volume(elem, CHANNEL, &vol);
 
 	snd_mixer_close(h_mixer);
+	return vol;
 }

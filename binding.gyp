@@ -5,8 +5,8 @@
       "sources": [
         "NativeExtension.cc",
         "functions.cc",
-        "alsa-getvolume.c",
-        "alsa-setvolume.c"
+        "alsa-getvolume.cc",
+        "alsa-setvolume.cc"
       ],
       "include_dirs" : [
         "<!(node -e \"require('nan')\")"
