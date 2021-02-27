@@ -1,4 +1,5 @@
 #include "functions.h"
+#include "alsa-getvolume.h"
 
 using v8::FunctionTemplate;
 
@@ -11,6 +12,8 @@ NAN_MODULE_INIT(InitAll) {
     Nan::New("aNumber").ToLocalChecked(),
     Nan::GetFunction(Nan::New<FunctionTemplate>(aNumber)).ToLocalChecked()
   );
+
+  NAN_EXPORT(target, getVolume);
 }
 
 NODE_MODULE(NativeExtension, InitAll)

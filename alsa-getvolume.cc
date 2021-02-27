@@ -9,8 +9,7 @@
 // Author:
 //  2009 Yu-Jie Lin
 
-#include <nan.h>
-#include <alsa/asoundlib.h>
+#include "alsa-getvolume.h"
 
 const snd_mixer_selem_channel_id_t CHANNEL = SND_MIXER_SCHN_FRONT_LEFT;
 
@@ -25,7 +24,8 @@ static void error_close_exit(char *errmsg, int err, snd_mixer_t *h_mixer)
 	exit(EXIT_FAILURE);
 }
 
-long getVolume(int argc, char** argv)
+//long getVolume(int argc, char** argv)
+NAN_METHOD(getVolume)
 {
 	int err;
 	long vol;
@@ -35,13 +35,10 @@ long getVolume(int argc, char** argv)
 	char *device;
 	char *selem_name;
 
-	if (argc < 3) {
-		printf("Usage:\n\t%s device control\n", argv[0]);
-		return 0;
-	}
-
-	device = argv[1];
-	selem_name = argv[2];
+	// device = argv[1];
+	// selem_name = argv[2];
+	device = "default";
+	selem_name = "Line";
 
 	if ((err = snd_mixer_open(&h_mixer, 1)) < 0)
 		error_close_exit("Mixer open error: %s\n", err, NULL);
@@ -65,5 +62,5 @@ long getVolume(int argc, char** argv)
 	snd_mixer_selem_get_playback_volume(elem, CHANNEL, &vol);
 
 	snd_mixer_close(h_mixer);
-	return vol;
+	info.GetReturnValue().Set((double)vol);
 }
