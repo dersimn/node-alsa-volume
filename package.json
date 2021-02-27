@@ -1,14 +1,22 @@
 {
   "name": "alsa-volume",
   "version": "0.0.1",
-  "description": "",
+  "description": "Functions to get/set volume for ALSA devices on Linux",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node-gyp rebuild"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dersimn/node-alsa-volume.git"
+  },
+  "author": "Simon Christmann <simon@christmann.email>",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dersimn/node-alsa-volume/issues"
+  },
+  "homepage": "https://github.com/dersimn/node-alsa-volume#readme",
   "dependencies": {
     "bindings": "^1.5.0",
     "nan": "^2.14.2"
