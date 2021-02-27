@@ -7,5 +7,6 @@
 // Implementations are in functions.cc
 
 NAN_METHOD(aNumber);
+NAN_METHOD(stringInput);
 
 #endif
