@@ -9,6 +9,7 @@
 // Author:
 //  2009 Yu-Jie Lin
 //  2014 Maarten ter Huurne
+//  2021 Simon Christmann
 
 #include "alsa-setvolume.h"
 

@@ -8,6 +8,7 @@
 //
 // Author:
 //  2009 Yu-Jie Lin
+//  2021 Simon Christmann
 
 #include "alsa-getvolume.h"
 
@@ -24,7 +25,6 @@ static void error_close_exit(char *errmsg, int err, snd_mixer_t *h_mixer)
 	exit(EXIT_FAILURE);
 }
 
-//long getVolume(int argc, char** argv)
 NAN_METHOD(getVolume)
 {
 	int err;

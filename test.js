@@ -1,7 +1,5 @@
 const nativeModule = require('./');
 
-console.log(nativeModule.aNumber(42));
-
 const before = Date.now();
 console.log(nativeModule.getVolume('default', 'Line'));
 console.log(nativeModule.setVolume('default', 'Line', 42));

@@ -4,7 +4,6 @@
       "target_name": "NativeExtension",
       "sources": [
         "NativeExtension.cc",
-        "functions.cc",
         "alsa-getvolume.cc",
         "alsa-setvolume.cc"
       ],
