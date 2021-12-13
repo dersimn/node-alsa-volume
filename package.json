@@ -1,6 +1,6 @@
 {
   "name": "alsa-volume",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Functions to get/set volume for ALSA devices on Linux",
   "main": "index.js",
   "scripts": {
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dersimn/node-alsa-volume.git"
+    "url": "git+https://github.com/elamperti/node-alsa-volume.git"
   },
   "author": "Simon Christmann <simon@christmann.email>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dersimn/node-alsa-volume/issues"
+    "url": "https://github.com/elamperti/node-alsa-volume/issues"
   },
-  "homepage": "https://github.com/dersimn/node-alsa-volume#readme",
+  "homepage": "https://github.com/elamperti/node-alsa-volume#readme",
   "dependencies": {
     "bindings": "^1.5.0",
     "nan": "^2.14.2"

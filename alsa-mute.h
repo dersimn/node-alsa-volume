@@ -4,6 +4,7 @@
 #include <nan.h>
 #include <alsa/asoundlib.h>
 
-NAN_METHOD(mute);
+NAN_METHOD(setMute);
+NAN_METHOD(toggleMute);
 
 #endif
