@@ -27,11 +27,13 @@ static void error_close_exit(char *errmsg, int err, snd_mixer_t *h_mixer)
 NAN_METHOD(setVolume)
 {
 	int err;
+	long min, max;
+	unsigned int volPercentage;
 	long vol;
 	snd_mixer_t *h_mixer;
 	snd_mixer_selem_id_t *sid;
 	snd_mixer_elem_t *elem ;
-	
+
 	Nan::Utf8String nan_device(info[0]);
 	std::string str_device(*nan_device);
 	const char* device = str_device.c_str();
@@ -40,7 +42,9 @@ NAN_METHOD(setVolume)
 	std::string str_selem_name(*nan_selem_name);
 	const char* selem_name = str_selem_name.c_str();
 
-	vol = Nan::To<double>(info[2]).FromJust();
+	volPercentage = Nan::To<unsigned int>(info[2]).FromJust();
+	if (volPercentage > 100)
+		volPercentage = 100;
 
 	if ((err = snd_mixer_open(&h_mixer, 1)) < 0)
 		error_close_exit("Mixer open error: %s\n", err, NULL);
@@ -60,6 +64,9 @@ NAN_METHOD(setVolume)
 
 	if ((elem = snd_mixer_find_selem(h_mixer, sid)) == NULL)
 		error_close_exit("Cannot find simple element\n", 0, h_mixer);
+
+	snd_mixer_selem_get_playback_volume_range(elem, &min, &max);
+	vol = (max - min) / 100 * volPercentage + min;
 
 	if ((err = snd_mixer_selem_set_playback_volume_all(elem, vol)) < 0)
 		error_close_exit("Volume set error: %s\n", err, h_mixer);
