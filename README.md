@@ -10,10 +10,12 @@ Example:
 ```js
 const alsaVolume = require('alsa-volume');
 
-console.log('before', alsaVolume.getVolume('default', 'Line'));
+console.log('before', alsaVolume.getVolume('default', 'Line'));  // Some value
                       alsaVolume.setVolume('default', 'Line', 42);
-console.log('after',  alsaVolume.getVolume('default', 'Line'));
 
+console.log('after',  alsaVolume.getVolume('default', 'Line'));  // 42
+
+// Get min/max values for setVolume
 const range = alsaVolume.getVolumeRange('default', 'Line');
 console.log(range.min);
 console.log(range.max);
