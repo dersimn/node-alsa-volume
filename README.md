@@ -28,6 +28,17 @@ console.log(alsaVolume.getMute('default', 'Line'));  // true
 
 Use `alsamixer` to identify mixer names. Usually `Master`, `PCM`, etc.
 
+Combine with [alsa-monitor](https://www.npmjs.com/package/alsa-monitor) to listen for volume changes:
+
+```js
+const alsaMonitor = require('alsa-monitor');
+const alsaVolume = require('alsa-volume');
+
+alsaMonitor.volume.on('change', () => {
+    console.log(alsaVolume.getVolume('default', 'Line'));  // 42
+});
+```
+
 ## Usage Dev
 
     apt install build-essential git libasound2-dev
