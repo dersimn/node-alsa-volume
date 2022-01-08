@@ -62,5 +62,5 @@ NAN_METHOD(getMute)
 	snd_mixer_selem_get_playback_switch(elem, CHANNEL, &mute_state);
 
 	snd_mixer_close(h_mixer);
-	info.GetReturnValue().Set((bool)!mute_state);
+	info.GetReturnValue().Set((bool)mute_state);
 }
