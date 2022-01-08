@@ -9,7 +9,7 @@
 // Author:
 //  2021 Enrico Lamperti
 
-#include "alsa-mute.h"
+#include "alsa-setmute.h"
 
 const snd_mixer_selem_channel_id_t CHANNEL = SND_MIXER_SCHN_FRONT_LEFT;
 

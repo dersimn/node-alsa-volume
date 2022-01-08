@@ -1,7 +1,7 @@
 #include "alsa-getvolume.h"
 #include "alsa-setvolume.h"
 #include "alsa-getmute.h"
-#include "alsa-mute.h"
+#include "alsa-setmute.h"
 
 NAN_MODULE_INIT(InitAll) {
   NAN_EXPORT(target, getVolume);

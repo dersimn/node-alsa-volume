@@ -7,7 +7,7 @@
         "alsa-getvolume.cc",
         "alsa-setvolume.cc",
         "alsa-getmute.cc",
-        "alsa-mute.cc"
+        "alsa-setmute.cc"
       ],
       "include_dirs" : [
         "<!(node -e \"require('nan')\")"
