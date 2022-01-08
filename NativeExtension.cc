@@ -3,6 +3,7 @@
 
 NAN_MODULE_INIT(InitAll) {
   NAN_EXPORT(target, getVolume);
+  NAN_EXPORT(target, getVolumeRange);
   NAN_EXPORT(target, setVolume);
 }
 

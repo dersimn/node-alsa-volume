@@ -5,5 +5,6 @@
 #include <alsa/asoundlib.h>
 
 NAN_METHOD(getVolume);
+NAN_METHOD(getVolumeRange);
 
 #endif
