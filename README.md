@@ -19,6 +19,11 @@ console.log('after',  alsaVolume.getVolume('default', 'Line'));  // 42
 const range = alsaVolume.getVolumeRange('default', 'Line');
 console.log(range.min);
 console.log(range.max);
+
+// Mute
+alsaVolume.setMute('default', 'Line', false);
+alsaVolume.toggleMute('default', 'Line');
+console.log(alsaVolume.getMute('default', 'Line'));  // true
 ```
 
 Use `alsamixer` to identify mixer names. Usually `Master`, `PCM`, etc.
@@ -45,3 +50,4 @@ In a seperate window, run `alsamixer`, then:
 - [alsa-volume](https://github.com/OpenDingux/alsa-volume)
 - [node-native-boilerplate](https://github.com/fcanas/node-native-boilerplate)
 - [NodeJS Advanced — How to create a native add-on using C++](https://medium.com/the-guild/nodejs-advanced-how-to-create-a-native-add-on-using-c-588b4f2248cc), [GitHub Project](https://github.com/DAB0mB/node-distance-addon)
+- [elamperti](https://github.com/elamperti/node-alsa-volume) for implementing mute & volumeRange functions
