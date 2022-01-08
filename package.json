@@ -1,6 +1,6 @@
 {
   "name": "alsa-volume",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Functions to get/set volume for ALSA devices on Linux",
   "main": "index.js",
   "scripts": {
