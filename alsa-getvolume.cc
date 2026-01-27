@@ -17,9 +17,9 @@ const snd_mixer_selem_channel_id_t CHANNEL = SND_MIXER_SCHN_FRONT_LEFT;
 static void error_close_exit(char *errmsg, int err, snd_mixer_t *h_mixer)
 {
 	if (err == 0)
-		fprintf(stderr, errmsg);
+        fprintf(stderr, "%s", errmsg);
 	else
-		fprintf(stderr, errmsg, snd_strerror(err));
+        fprintf(stderr, "%s %s\n", errmsg, snd_strerror(err));
 	if (h_mixer != NULL)
 		snd_mixer_close(h_mixer);
 	exit(EXIT_FAILURE);
